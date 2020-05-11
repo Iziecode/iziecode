@@ -2,6 +2,7 @@
   "name": "iziedev/iziecode",
   "description": "Easy life with izie code",
   "type": "library",
+  "license": "MIT",
   "authors": [
     {
       "name": "I Komang Oka Nuantara",
