@@ -1,0 +1,21 @@
+{
+    "name": "iziedev/iziecode",
+    "description": "easy life with izie code",
+    "type": "library",
+    "authors": [
+        {
+            "name": "oka",
+            "email": "okanuantara1709@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload" : {
+        "psr-4" : {
+            "Iziedev\\Iziecode\\" : "src/"
+        },
+        "files" : [
+            "src/helpers.php"
+        ]
+    }
+}
