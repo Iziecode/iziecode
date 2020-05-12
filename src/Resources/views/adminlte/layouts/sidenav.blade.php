@@ -18,7 +18,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 @foreach (\Iziedev\Iziecode\App\Helpers\AppHelper::renderMenu() as $menu)
-                    @include('iziecode::layouts.navigator',['menu' => $menu])
+                    @include(load_view('layouts.navigator'),['menu' => $menu])
                 @endforeach
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="document.getElementById('frmLogout').submit()">

@@ -9,7 +9,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "almasaeed2010/adminlte": "~3.0"
+    },
     "autoload" : {
         "psr-4" : {
             "Iziedev\\Iziecode\\" : "src/"

@@ -1,4 +1,4 @@
-@extends('iziecode::layouts.app')
+@extends(load_view('layouts.app'))
 
 @section('content')
 @php
@@ -31,7 +31,8 @@
                         <h3 class="box-title"><i class="{{$template->icon}}"></i> List {{$template->title}}</h3>
                         <a href="{{route("$template->route".'.create')}}"
                             class="btn btn-primary pull-right {{ \Iziedev\Iziecode\App\Helpers\AppHelper::config($config,'index.create.is_show') ?  \Iziedev\Iziecode\App\Helpers\AppHelper::config($config,'index.create.is_show') : 'hidden'}}">
-                            <i class="fa fa-pencil"></i> Tambah {{$template->title}}
+                            <x-ez-icon  name="apps-outline"  /> Tambah {{$template->title}}
+                            
                         </a>
                     </div>
                     <div class="card-body">
@@ -110,7 +111,9 @@
 @endpush
 @push('js')
 <!-- page script -->
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 <script>
+    
     $(function () {
         $('#datatables').DataTable()
         $('#full-datatables').DataTable({

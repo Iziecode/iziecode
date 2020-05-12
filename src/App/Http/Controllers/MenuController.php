@@ -80,7 +80,8 @@ class MenuController extends Controller
         $template = (object) $this->template;
         $form = $this->form();
         $data = Menu::all();
-        return view('iziecode::master.index',compact('template','form','data'));
+        // return view(load_view('components.icon'));
+        return view(load_view('master.index'),compact('template','form','data'));
     }
 
     /**

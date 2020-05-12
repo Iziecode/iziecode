@@ -14,14 +14,14 @@
 </head>
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
-    @include('iziecode::layouts.top')
-    @include('iziecode::layouts.sidenav')
+    @include(load_view('layouts.top'))
+    @include(load_view('layouts.sidenav'))
     
     <div class="content-wrapper">
       @yield('content')
     </div>
 
-    @include('iziecode::layouts.bottom')
+    @include(load_view('layouts.bottom'))
   </div>
   <script src="/iziecode/adminlte/plugins/jquery/jquery.min.js"></script>
   <script src="/iziecode/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
