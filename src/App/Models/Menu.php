@@ -3,11 +3,11 @@
 namespace Iziedev\Iziecode\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Controllers\Traits\Uuid;
+use Iziedev\Iziecode\App\Traits\Uuid;
+
 class Menu extends Model
 {
-    //
-    use  Uuid;
+    use Uuid;
     protected $table = 'menu';
 
     protected $fillable = [
@@ -21,15 +21,18 @@ class Menu extends Model
 
     protected $with = ['subMenu'];
 
-    function parent(){
-        return $this->belongsTo('Iziedev\Iziecode\App\Models\Menu','parent_id');
+    function parent()
+    {
+        return $this->belongsTo('Iziedev\Iziecode\App\Models\Menu', 'parent_id');
     }
 
-    function subMenu(){
-        return $this->hasMany('Iziedev\Iziecode\App\Models\Menu','parent_id');
+    function subMenu()
+    {
+        return $this->hasMany('Iziedev\Iziecode\App\Models\Menu', 'parent_id');
     }
 
-    function allChildren(){
+    function allChildren()
+    {
         return $this->child()->with('allChildren');
     }
 }
