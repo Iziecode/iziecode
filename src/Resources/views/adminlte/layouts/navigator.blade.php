@@ -11,7 +11,7 @@
     @if(count($menu->subMenu) > 0)
         <ul class="nav nav-treeview">
             @foreach ($menu->subMenu as $menu)
-                @include('iziecode::layouts.navigator',['menu' => $menu])
+                @include(load_view('layouts.navigator'),['menu' => $menu])
             @endforeach
         </ul>
     @endif
