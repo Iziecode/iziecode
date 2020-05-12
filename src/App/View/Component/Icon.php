@@ -8,15 +8,17 @@ class Icon extends Component
 {
     public $type;
     public $name;
+    public $class;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name,$type = null)
+    public function __construct($name,$type = null,$class)
     {
         $this->type = $type == null ? config('iziecode.default-icon') : $type;
         $this->name = $name;
+        $this->class = $class;
     }
 
     /**

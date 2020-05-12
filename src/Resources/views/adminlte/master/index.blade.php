@@ -32,7 +32,7 @@
                         <a href="{{route("$template->route".'.create')}}"
                             class="btn btn-primary pull-right {{ \Iziedev\Iziecode\App\Helpers\AppHelper::config($config,'index.create.is_show') ?  \Iziedev\Iziecode\App\Helpers\AppHelper::config($config,'index.create.is_show') : 'hidden'}}">
                             <x-ez-icon  name="apps-outline"  /> Tambah {{$template->title}}
-                            
+                            <x-ez-form-input />
                         </a>
                     </div>
                     <div class="card-body">
