@@ -38,12 +38,16 @@ class IziecodeServicesProvider extends ServiceProvider
         ]);
 
         $this->publishes([
-            __DIR__.'/Public/iziecode' => public_path('iziecode'),
-        ],'iziecode-public');
+            __DIR__ . '/Public/iziecode' => public_path('iziecode'),
+        ], 'iziecode-public');
 
         $this->publishes([
             __DIR__ . '/Config/iziecode.php' => config_path('iziecode.php'),
-        ],'iziecode-config');
+        ], 'iziecode-config');
+
+        $this->publishes([
+            __DIR__ . '/database/migrations/2020_05_08_155649_create_menus_table.php' => database_path('migrations')
+        ], 'iziecode-migration');
 
         $this->loadCommands();
     }
