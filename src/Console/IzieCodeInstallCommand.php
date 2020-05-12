@@ -11,10 +11,6 @@ class IzieCodeInstallCommand extends Command
 
     protected $description = 'Install iziecode assests';
 
-    protected $packagePath = __DIR__ . '/../../';
-
-    protected $assetsPath = 'vendor/';
-
     protected $assetsPackagePath = 'vendor/almasaeed2010/adminlte/';
 
     protected $directories = [
