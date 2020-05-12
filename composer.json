@@ -1,23 +1,28 @@
 {
-    "name": "iziedev/iziecode",
-    "description": "easy life with izie code",
-    "type": "library",
-    "authors": [
-        {
-            "name": "oka",
-            "email": "okanuantara1709@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "almasaeed2010/adminlte": "~3.0"
+  "name": "iziedev/iziecode",
+  "description": "Easy life with izie code",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "I Komang Oka Nuantara",
+      "email": "okanuantara1709@gmail.com"
     },
-    "autoload" : {
-        "psr-4" : {
-            "Iziedev\\Iziecode\\" : "src/"
-        },
-        "files" : [
-            "src/helpers.php"
-        ]
+    {
+      "name": "Pande Putu Widya Oktapratama",
+      "email": "widya.oktapratama@gmail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "almasaeed2010/adminlte": "~3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Iziedev\\Iziecode\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  }
 }
