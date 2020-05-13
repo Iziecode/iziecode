@@ -25,14 +25,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                {!! \Iziedev\Iziecode\App\Helpers\Alert::showBox()!!}
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="box-title"><i class="{{$template->icon}}"></i> List {{$template->title}}</h3>
+                        <h3 class="box-title"><x-ez-icon name="{{$template->icon}}"/> List {{$template->title}}</h3>
                         <a href="{{route("$template->route".'.create')}}"
-                            class="btn btn-primary pull-right {{ \Iziedev\Iziecode\App\Helpers\AppHelper::config($config,'index.create.is_show') ?  \Iziedev\Iziecode\App\Helpers\AppHelper::config($config,'index.create.is_show') : 'hidden'}}">
-                            <x-ez-icon  name="apps-outline"  /> Tambah {{$template->title}}
-                            <x-ez-form-input />
+                            class="btn btn-primary float-right {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.create.is_show') ?  \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.create.is_show') : 'hidden'}}">
+                            <x-ez-icon  name="add-outline"  /> Tambah {{$template->title}}
                         </a>
                     </div>
                     <div class="card-body">
@@ -61,7 +59,7 @@
                                     <td @if(array_key_exists('format',$item) && $item['format']=='rupiah' )
                                         style="text-align:right" @endif>
                                         @if (array_key_exists('view_relation',$item))
-                                        {{  \Iziedev\Iziecode\App\Helpers\AppHelper::viewRelation($row,$item['view_relation']) }}
+                                        {{  \Iziedev\Iziecode\Helpers\AppHelper::viewRelation($row,$item['view_relation']) }}
                                         @else
                                         @if(array_key_exists('format',$item) && $item['format'] == 'rupiah')
                                         {{number_format($row->{$item['name']},2,',','.')}}
@@ -74,12 +72,18 @@
                                     @endforeach
                                     <td>
                                         <a href="{{route("$template->route".'.edit',[$row->id])}}"
-                                            class="btn btn-success btn-sm {{ \Iziedev\Iziecode\App\Helpers\AppHelper::config($config,'index.edit.is_show') ? '' : 'hidden'}}">Ubah</a>
+                                            class="btn btn-success btn-sm {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.edit.is_show') ? '' : 'hidden'}}">
+                                            <x-ez-icon name="create-outline"/> Ubah
+                                        </a>
                                         <a href="{{route("$template->route".'.show',[$row->id])}}"
-                                            class="btn btn-info btn-sm {{ \Iziedev\Iziecode\App\Helpers\AppHelper::config($config,'index.show.is_show') ? '' : 'hidden'}}">Lihat</a>
+                                            class="btn btn-info btn-sm {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.show.is_show') ? '' : 'hidden'}}">
+                                            <x-ez-icon name="eye-outline"/> Lihat
+                                        </a>
                                         <a href="#"
-                                            class="btn btn-danger btn-sm {{ \Iziedev\Iziecode\App\Helpers\AppHelper::config($config,'index.delete.is_show') ? '' : 'hidden'}}"
-                                            onclick="confirm('Lanjutkan ?') ? $('#frmDelete{{$row->id}}').submit() : ''">Hapus</a>
+                                            class="btn btn-danger btn-sm {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.delete.is_show') ? '' : 'hidden'}}"
+                                            onclick="confirm('Lanjutkan ?') ? $('#frmDelete{{$row->id}}').submit() : ''">
+                                            <x-ez-icon name="trash-outline"/> Hapus
+                                        </a>
                                         <form action="{{route("$template->route".'.destroy',[$row->id])}}" method="POST"
                                             id="frmDelete{{$row->id}}">
                                             {{ csrf_field() }}
@@ -111,7 +115,7 @@
 @endpush
 @push('js')
 <!-- page script -->
-<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
 <script>
     
     $(function () {

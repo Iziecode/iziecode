@@ -1,6 +1,6 @@
 <?php
 
-namespace Iziedev\Iziecode\App\Helpers;
+namespace Iziedev\Iziecode\App\Traits;
 
 use Symfony\Component\HttpFoundation\Request;
 use Auth;

@@ -3,11 +3,11 @@
 namespace Iziedev\Iziecode\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Iziedev\Iziecode\App\Traits\Uuid;
+use Iziedev\Iziecode\App\Traits\UuidTrait;
 
 class Menu extends Model
 {
-    use Uuid;
+    use UuidTrait;
     protected $table = 'menu';
 
     protected $fillable = [

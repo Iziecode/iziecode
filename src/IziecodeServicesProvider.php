@@ -4,6 +4,8 @@ namespace Iziedev\Iziecode;
 
 use Illuminate\Support\ServiceProvider;
 use Iziedev\Iziecode\App\View\Component\Icon;
+use Iziedev\Iziecode\App\View\Component\Form;
+use Iziedev\Iziecode\App\View\Component\RenderForm;
 use Illuminate\Support\Facades\File;
 use Iziedev\Iziecode\Console\IzieCodeInstallCommand;
 
@@ -34,7 +36,9 @@ class IziecodeServicesProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
 
         $this->loadViewComponentsAs('ez', [
-            Icon::class
+            Icon::class,
+            Form::class,
+            RenderForm ::class,
         ]);
 
         $this->publishes([

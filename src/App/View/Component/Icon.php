@@ -14,7 +14,7 @@ class Icon extends Component
      *
      * @return void
      */
-    public function __construct($name,$type = null,$class)
+    public function __construct($name,$type = null,$class = null)
     {
         $this->type = $type == null ? config('iziecode.default-icon') : $type;
         $this->name = $name;
@@ -28,6 +28,6 @@ class Icon extends Component
      */
     public function render()
     {
-        return view(load_view('components.icon'));
+        return view(load_view('components.utilities.icon'));
     }
 }

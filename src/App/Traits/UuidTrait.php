@@ -7,7 +7,7 @@ use Webpatser\Uuid\Uuid as Generator;
 /**
  * 
  */
-trait Uuid
+trait UuidTrait
 {
     public static function boot()
     {
