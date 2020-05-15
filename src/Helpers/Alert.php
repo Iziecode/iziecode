@@ -2,7 +2,7 @@
 /**
  * @author Izie Dev
  */
-namespace Iziedev\Iziecode\App\Helpers;
+namespace Iziedev\Iziecode\Helpers;
 
 use Session;
 
@@ -35,11 +35,9 @@ class Alert
     public static function showBox(){
         if(self::has()){
             return "
-            <div class='row'>
-                <div class='col-md-12'>
+                <div class='col-lg-12'>
                     <div class='alert alert-".self::type()."'>".self::msg()."</div>
                 </div>
-            </div>
             ";
         }
     }

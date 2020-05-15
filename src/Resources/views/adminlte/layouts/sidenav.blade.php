@@ -20,8 +20,9 @@
                 @endforeach
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="document.getElementById('frmLogout').submit()">
-                    <i class="nav-icon fas fa-door-closed"></i>
-                    Logout</a>
+                        <x-ez-icon name="power-outline"/>
+                        <p>Logout</p>
+                    </a>
                     <form id="frmLogout" method="POST" action="/logout">
                         @csrf
                     </form>

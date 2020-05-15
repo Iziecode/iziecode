@@ -1,4 +1,4 @@
-@extends('panel.layouts.app')
+@extends(load_view('layouts.app'))
 
 @section('content')
 @php
@@ -14,64 +14,51 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li><a href="{{route('panel.dashboard.index')}}"><i class="fa fa-dashboard"></i> Home</a></li> /
+                    <li><a href="{{route(config('iziecode.dashboard-route'))}}"><i class="fa fa-dashboard"></i> Home</a></li> /
                     <li class="active">{{$template->title}}</li>
                 </ol>
             </div>
         </div>
     </div>
 </div>
-<section class="content">
-    <div class="col-md-12">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        <div class="card ">
-            <div class="card-header">
-                <h3 class="card-title"><i class="{{$template->icon}}"></i> Form Ubah{{$template->title}}</h3>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        {{ $errors->has('test1') }}
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <div class="card ">
+                    <div class="card-header">
+                        <h3 class="card-title"><x-ez-icon name="{{$template->icon}}"/> Form Ubah {{$template->title}}</h3>
+                    </div>
+                    <form action="{{route("$template->route".".store")}}" method="POST"  enctype="multipart/form-data">
+                        @csrf
+                        
+                        <div class="card-body">
+                            {{-- <x-ez-form name="text" label="Bagus" form-group-prepend="@" form-group-append="ez-icon.add-outline" helper-text="jancuk" placeholder="Ini placeholder" layout="horizontal"/> --}}
+                            {{-- {{$data->name}} --}}
+                            @foreach($form as $value)
+                                <x-ez-render-form :props="$value" :data="$data"/>
+                            @endforeach
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <a href="{{ url()->previous() }}" class="btn btn-default">Kembali</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <form action="{{route("$template->route".".update",[$data->id])}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <div class="card-body">
-                    @foreach($form as $value)
-                    {!!Render::form($value,$data)!!}
-                    @endforeach
-                    @if($template->route == 'panel.gallery')
-                        <div class="photo-file" style="display : none;">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-form-label">File (Max 500 Kb) :</label>
-                                <div class="col-sm-12">
-                                <div class="input-group input-group">
-                                    <input type="file" name="value" class="form-control" autofocus>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="url-file" style="display : none;">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-form-label">URL Video Baru</label>
-                                <div class="col-sm-12">
-                                    <input type="text" name="value" class="form-control" autofocus>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <a href="{{ url()->previous() }}" class="btn btn-default">Kembali</a>
-                </div>
-            </form>
         </div>
     </div>
-</section>
+</div>
 @endsection
 @push('css')
 <style>
@@ -87,24 +74,7 @@
 @endpush
 @push('js')
 <!-- page script -->
-    <script>
-        function show(value){
-            if(value == "photo"){
-                $(".photo-file").fadeIn();
-                $(".url-file").fadeOut();
-            }else if("video"){
-                $(".photo-file").fadeOut();
-                $(".url-file").fadeIn();
-            }
-            else{
-                $(".photo-file").fadeOut();
-                $(".url-file").fadeOut();
-            }
-        }
-
-        $(".select-type").change(function(){      
-        var value = $(".select-type").val(); 
-            show(value);
-        })
-    </script>
+<script>
+    
+</script>
 @endpush

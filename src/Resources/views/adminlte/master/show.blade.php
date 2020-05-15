@@ -1,4 +1,4 @@
-@extends('panel.layouts.app')
+@extends(load_view('layouts.app'))
 
 @section('content')
 @php
@@ -14,7 +14,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li><a href="{{route('panel.dashboard.index')}}"><i class="fa fa-dashboard"></i> Home</a></li> /
+                    <li><a href="{{route(config('iziecode.dashboard-route'))}}"><i class="fa fa-dashboard"></i> Home</a></li> /
                     <li class="active">{{$template->title}}</li>
                 </ol>
             </div>
@@ -34,7 +34,7 @@
         @endif
         <div class="card ">
             <div class="card-header">
-                <h3 class="card-title"><i class="{{$template->icon}}"></i> Form Ubah{{$template->title}}</h3>
+                <h3 class="card-title"><x-ez-icon name="{{$template->icon}}"/> Form Ubah{{$template->title}}</h3>
             </div>
             <table class="table">
                 <thead>
@@ -44,7 +44,6 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
                     <tbody>                                                                                       
                        @foreach ($form as $item)
                             @if (array_key_exists('type',$item) && $item['type'] == 'password')
@@ -62,7 +61,7 @@
                                 <td>{{$item['label']}}</td>
                                 <td>:</td>
                                 <td>
-                                    {{AppHelper::viewRelation($data,$item['view_relation'])}}
+                                    {{ \Iziedev\Iziecode\Helpers\AppHelper::viewRelation($data,$item['view_relation'])}}
                                 </td>
                             </tr>
                             @elseif(array_key_exists('format',$item) && !empty($item['format']))
@@ -82,7 +81,6 @@
                             @endif
                         @endforeach
                     </tbody>
-                </tbody>
             </table>
         </div>
     </div>

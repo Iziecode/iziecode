@@ -1,6 +1,6 @@
 <li class="nav-item {{count($menu->subMenu) > 0 ? 'has-treeview' : ''}}">
     <a href="{{Route::has($menu->route_name) ? route("$menu->route_name") : '#'}}" class="nav-link " >
-        <i class="{{ $menu->icon }}"></i>
+        <x-ez-icon name="{{ $menu->icon }}"/>
         <p>
             {{$menu->name}}
             @if(count($menu->subMenu) > 0)

@@ -32,30 +32,37 @@ class RenderForm extends Component
      * @return void
      */
     
-    public function __construct($attr)
+    public function __construct($props,$data = null)
     {
-        // dd($attr);
+        // dd($props);
         // TODO: buat logic dari method, hideadd, hide edit, attr, dan input group
-        $this->label = isset($attr['label']) ? $attr['label'] : '' ;
-        $this->type = isset($attr['type']) ? $attr['type'] : '' ;
-        $this->name = isset($attr['name']) ? $attr['name'] : '' ;
-        $this->class = isset($attr['class']) ? $attr['class'] : '' ;
-        $this->required = isset($attr['required']) ? $attr['required'] : true ;
-        $this->placeholder = isset($attr['placeholder']) ? $attr['placeholder'] : '' ;
-        $this->value = isset($attr['value']) ? $attr['value'] : '' ;
-        $this->options = isset($attr['options']) ? $attr['options'] : [];
-        $this->hideAdd = isset($attr['hideAdd']) ? $attr['hideAdd'] : '' ;
-        $this->hideEdit = isset($attr['hideEdit']) ? $attr['hideEdit'] : '' ;
-        $this->method = isset($attr['method']) ? $attr['method'] : '' ;
-        $this->attr = isset($attr['attr']) ? $attr['attr'] : '' ; 
-        $this->helperText = isset($attr['helperText']) ? $attr['helperText'] : '' ; 
-        $this->readonly = isset($attr['readonly']) ? $attr['readonly'] : false ; 
-        $this->layout = isset($attr['layout']) ? $attr['layout'] : false ;
-        $this->formGroupPrepend = isset($attr['form-group-prepend']) ? $attr['form-group-prepend'] : '';
-        $this->formGroupAppend = isset($attr['form-group-append']) ? $attr['form-group-append'] : '';
-        $this->isValid = isset($attr['is-valid']) ? $attr['is-valid'] : false;
-        $this->isInvalid = isset($attr['is-invalid']) ? $attr['is-invalid'] : false;
-        $this->validateText = isset($attr['validate-text']) ? $attr['validate-text'] : false;
+        
+
+        $this->label = isset($props['label']) ? $props['label'] : '' ;
+        $this->type = isset($props['type']) ? $props['type'] : '' ;
+        $this->name = isset($props['name']) ? $props['name'] : '' ;
+        $this->class = isset($props['class']) ? $props['class'] : '' ;
+        $this->required = isset($props['required']) ? $props['required'] : true ;
+        $this->placeholder = isset($props['placeholder']) ? $props['placeholder'] : '' ;
+        $this->options = isset($props['options']) ? $props['options'] : [];
+        $this->hideAdd = isset($props['hideAdd']) ? $props['hideAdd'] : '' ;
+        $this->hideEdit = isset($props['hideEdit']) ? $props['hideEdit'] : '' ;
+        $this->method = isset($props['method']) ? $props['method'] : '' ;
+        $this->attr = isset($props['attr']) ? $props['attr'] : '' ; 
+        $this->helperText = isset($props['helperText']) ? $props['helperText'] : '' ; 
+        $this->readonly = isset($props['readonly']) ? $props['readonly'] : false ; 
+        $this->layout = isset($props['layout']) ? $props['layout'] : false ;
+        $this->formGroupPrepend = isset($props['form-group-prepend']) ? $props['form-group-prepend'] : '';
+        $this->formGroupAppend = isset($props['form-group-append']) ? $props['form-group-append'] : '';
+        $this->isValid = isset($props['is-valid']) ? $props['is-valid'] : false;
+        $this->isInvalid = isset($props['is-invalid']) ? $props['is-invalid'] : false;
+        $this->validateText = isset($props['validate-text']) ? $props['validate-text'] : false;
+
+        if($data == null){
+            $this->value = isset($props['value']) ? $props['value'] : '' ;
+        }else{
+            $this->value = $data->name;
+        }
     }
 
     /**
@@ -65,6 +72,7 @@ class RenderForm extends Component
      */
     public function render()
     {
+        // dd($this->value);
         return view(load_view('components.forms.render'));
     }
 }

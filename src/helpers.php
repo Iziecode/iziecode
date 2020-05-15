@@ -1,6 +1,6 @@
 <?php
 
-if (! function_exists('get_page_title')) {
+if (! function_exists('page_title')) {
     function page_title($template)
     {
         
@@ -11,7 +11,7 @@ if (! function_exists('get_page_title')) {
 if (! function_exists('app_name')) {
     function app_name($name = null)
     {
-        return $name = null ? config('iziecode.app-name') : $name;
+        return $name == null ? config('iziecode.app-name') : $name;
     }
 }
 

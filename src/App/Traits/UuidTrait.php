@@ -2,7 +2,7 @@
 
 namespace Iziedev\Iziecode\App\Traits;
 
-use Webpatser\Uuid\Uuid as Generator;
+use Ramsey\Uuid\Uuid as Generator;
 
 /**
  * 
@@ -13,12 +13,16 @@ trait UuidTrait
     {
         parent::boot();
         self::creating(function ($model) {
-            $model->{self::getRouteKeyName()} = (string) Generator::generate(4);
+            $model->{(new self)->getUiidField()} = (string) Generator::uuid4()->toString();
         });
     }
 
-    public function getRouteKeyName()
+    public  function getUiidField()
     {
+        return 'uuid';
+    }
+
+    public function getRouteKeyName(){
         return 'uuid';
     }
 }

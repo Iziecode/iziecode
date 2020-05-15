@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Iziedev\Iziecode\App\Traits\ControllerTrait;
 use Iziedev\Iziecode\App\Models\Menu;
+use Iziedev\Iziecode\Helpers\Alert;
 // use Iziedev\Iziecode\App\Helpers\AppHelper;
 
 class MenuController extends Controller
 {
+    
     use ControllerTrait;
 
     private $template = [
@@ -24,7 +26,12 @@ class MenuController extends Controller
         ]
     ];
 
-    private function formbackup()
+    private function primaryKey(){
+        return 'uuid';
+    }
+    
+
+    private function form()
     {
         
         $menuFromDB = Menu::select('id as value','name as name')->get()->toArray();
@@ -63,7 +70,7 @@ class MenuController extends Controller
                 'name' => 'parent_id',
                 'type' => 'select',
                 'required' => false,
-                'option' => $menus,
+                'options' => $menus,
                 'view_index' => true,
                 'view_relation' => 'parent->name',
                 'validation.store' => '',
@@ -72,102 +79,7 @@ class MenuController extends Controller
         ];
     }
 
-    private function form(){
-        return [
-            [
-                'name' => 'test1',
-                'label' => 'test1',
-                'placeholder' => 'placeholder ni bro',
-                'helperText' => 'Mantap jiwa ku',
-                'form-group-prepend' => '$',
-                'form-group-append' => 'ez-icon.add-outline',
-                'is-invalid' => true,
-                'validate-text' => 'error bangsat'
-            ],
-            [
-                'name' => 'test2',
-                'label' => 'test2',
-                'readonly' => true,
-                'layout' => 'horizontal',
-                'value' => 'nilai'
-            ],
-            [
-                'name' => 'textarea',
-                'type' => 'textarea',
-                'label' => 'textarea',
-                // 'readonly' => true,
-                'layout' => 'horizontal',
-                'value' => 'nilai'
-            ],
-            [
-                'name' => 'password',
-                'type' => 'passwords',
-                'label' => 'password',
-                'readonly' => false,
-                'layout' => 'horizontal',
-                'value' => 'nilai'
-            ],
-            [
-                'name' => 'test3',
-                'label' => 'test3',
-                'placeholder' => 'placeholder ni bro',
-                'helperText' => 'Mantap jiwa ku',
-                'form-group-prepend' => '$',
-                'form-group-append' => 'ez-icon.add-outline'
-            ],
-            [
-                'name' => 'select',
-                'type' => 'select',
-                'class' => 'select2',
-                'label' => 'select label',
-                'value' => 2,
-                'options' => [
-                    [
-                        'value' => '1',
-                        'name' => 'aktif'
-                    ],
-                    [
-                        'value' => '2',
-                        'name' => 'tidak aktif'
-                    ],
-                ]
-            ],
-            [
-                'name' => 'radio',
-                'type' => 'radio-inline',
-                'label' => 'select label',
-                'value' => 1,
-                'layout' => '',
-                'options' => [
-                    [
-                        'value' => '1',
-                        'name' => 'aktif'
-                    ],
-                    [
-                        'value' => '2',
-                        'name' => 'tidak aktif'
-                    ],
-                ]
-                ],
-            [
-                'name' => 'checkbox',
-                'type' => 'checkbox-inline',
-                'label' => 'select label',
-                'value' => [1,2],
-                'layout' => '',
-                'options' => [
-                    [
-                        'value' => '1',
-                        'name' => 'aktif'
-                    ],
-                    [
-                        'value' => '2',
-                        'name' => 'tidak aktif'
-                    ],
-                ]
-            ]
-        ];
-    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -175,11 +87,11 @@ class MenuController extends Controller
      */
     public function index()
     {
+        $primaryId = $this->primaryKey();
         $template = (object) $this->template;
         $form = $this->form();
         $data = Menu::all();
-        // return view(load_view('components.icon'));
-        return view(load_view('master.index'),compact('template','form','data'));
+        return view(load_view('master.index'),compact('template','form','data','primaryId'));
     }
 
     /**
@@ -217,10 +129,12 @@ class MenuController extends Controller
      */
     public function show($id)
     {
-        $data = Menu::find($id);
+        $primaryId = $this->primaryKey();
+        $data = Menu::where($primaryId,$id)->first();
+        
         $template = (object) $this->template;
         $form = $this->form();
-        return view('iziecode::master.show',compact('data','template','form'));
+        return view(load_view('master.show'),compact('data','template','form'));
     }
 
     /**
@@ -231,10 +145,12 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        $data = Menu::find($id);
+        $primaryId = $this->primaryKey();
+        $data = Menu::where($primaryId,$id)->first();
         $template = (object) $this->template;
         $form = $this->form();
-        return view('iziecode::master.edit',compact('data','template','form'));
+        // dd($data);
+        return view(load_view('master.edit'),compact('data','template','form'));
     }
 
     /**
@@ -247,7 +163,8 @@ class MenuController extends Controller
     public function update(Request $request, $id)
     {
         $this->formValidation($request);
-        Menu::find($id)
+        $primaryId = $this->primaryKey();
+        Menu::where($primaryId,$id)
             ->update($request->all());
         Alert::make('success','Berhasil simpan data');
         return redirect(route($this->template['route'].'.index'));
@@ -261,7 +178,8 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        Menu::find($id)
+        $primaryId = $this->primaryKey();
+        Menu::where($primaryId,$id)
             ->delete();
         Alert::make('success','Berhasil simpan data');
         return redirect(route($this->template['route'].'.index'));

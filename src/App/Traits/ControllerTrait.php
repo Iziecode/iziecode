@@ -6,6 +6,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Auth;
 trait ControllerTrait {
 
+    public function primaryKey($primaryId = null){
+        return $primaryId != null ? $primaryId : 'id';
+    }
+
     public function formValidation(Request $r, $overide = [])
     {
         $validations = [];

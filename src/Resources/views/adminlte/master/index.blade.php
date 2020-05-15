@@ -24,6 +24,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
+            {!!  \Iziedev\Iziecode\Helpers\Alert::showBox() !!}
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
@@ -71,21 +72,21 @@
                                     @endif
                                     @endforeach
                                     <td>
-                                        <a href="{{route("$template->route".'.edit',[$row->id])}}"
+                                        <a href="{{route("$template->route".'.edit',[$row->{$primaryId}])}}"
                                             class="btn btn-success btn-sm {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.edit.is_show') ? '' : 'hidden'}}">
                                             <x-ez-icon name="create-outline"/> Ubah
                                         </a>
-                                        <a href="{{route("$template->route".'.show',[$row->id])}}"
+                                        <a href="{{route("$template->route".'.show',[$row->{$primaryId}])}}"
                                             class="btn btn-info btn-sm {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.show.is_show') ? '' : 'hidden'}}">
                                             <x-ez-icon name="eye-outline"/> Lihat
                                         </a>
                                         <a href="#"
                                             class="btn btn-danger btn-sm {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.delete.is_show') ? '' : 'hidden'}}"
-                                            onclick="confirm('Lanjutkan ?') ? $('#frmDelete{{$row->id}}').submit() : ''">
+                                            onclick="confirm('Lanjutkan ?') ? $('#frmDelete{{$key}}').submit() : '' ">
                                             <x-ez-icon name="trash-outline"/> Hapus
                                         </a>
-                                        <form action="{{route("$template->route".'.destroy',[$row->id])}}" method="POST"
-                                            id="frmDelete{{$row->id}}">
+                                        <form action="{{route("$template->route".'.destroy',[$row->{$primaryId}])}}" method="POST"
+                                            id="frmDelete{{$key}}">
                                             {{ csrf_field() }}
                                             @method('DELETE')
                                         </form>
