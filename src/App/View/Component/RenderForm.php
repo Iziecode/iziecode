@@ -26,6 +26,8 @@ class RenderForm extends Component
     public $isValid;
     public $isInvalid;
     public $validateText;
+    public $watch;
+    public $ajaxUrl;
     /**
      * Create a new component instance.
      *
@@ -45,11 +47,11 @@ class RenderForm extends Component
         $this->required = isset($props['required']) ? $props['required'] : true ;
         $this->placeholder = isset($props['placeholder']) ? $props['placeholder'] : '' ;
         $this->options = isset($props['options']) ? $props['options'] : [];
-        $this->hideAdd = isset($props['hideAdd']) ? $props['hideAdd'] : '' ;
-        $this->hideEdit = isset($props['hideEdit']) ? $props['hideEdit'] : '' ;
+        $this->hideAdd = isset($props['hide-add']) ? $props['hide-add'] : '' ;
+        $this->hideEdit = isset($props['hide-edit']) ? $props['hide-edit'] : '' ;
         $this->method = isset($props['method']) ? $props['method'] : '' ;
         $this->attr = isset($props['attr']) ? $props['attr'] : '' ; 
-        $this->helperText = isset($props['helperText']) ? $props['helperText'] : '' ; 
+        $this->helperText = isset($props['helper-text']) ? $props['helper-text'] : '' ; 
         $this->readonly = isset($props['readonly']) ? $props['readonly'] : false ; 
         $this->layout = isset($props['layout']) ? $props['layout'] : false ;
         $this->formGroupPrepend = isset($props['form-group-prepend']) ? $props['form-group-prepend'] : '';
@@ -57,6 +59,8 @@ class RenderForm extends Component
         $this->isValid = isset($props['is-valid']) ? $props['is-valid'] : false;
         $this->isInvalid = isset($props['is-invalid']) ? $props['is-invalid'] : false;
         $this->validateText = isset($props['validate-text']) ? $props['validate-text'] : false;
+        $this->watch = isset($props['watch']) ? $props['watch'] : false;
+        $this->ajaxUrl = isset($props['ajax-url']) ? $props['ajax-url'] : '';
 
         if($data == null){
             $this->value = isset($props['value']) ? $props['value'] : '' ;

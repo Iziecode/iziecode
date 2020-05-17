@@ -23,11 +23,12 @@
                         <x-ez-icon name="power-outline"/>
                         <p>Logout</p>
                     </a>
-                    <form id="frmLogout" method="POST" action="/logout">
-                        @csrf
-                    </form>
+                    
                 </li>
             </ul>
+            <form id="frmLogout" method="POST" action="/logout">
+                @csrf
+            </form>
             {{-- @include('panel.layouts.navigator') --}}
         </nav>
     </div>

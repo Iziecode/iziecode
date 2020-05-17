@@ -1,5 +1,5 @@
 <div class="form-group {{$layout == 'horizontal' ? 'row' : ''}}">
-    <label for="text_{{ $name }}" 
+    <label for="id_{{ $name }}" 
            class="{{$layout == 'horizontal' ? 'col-sm-2 col-form-label' : ''}}">
             {{ $label }}
     </label>
@@ -20,8 +20,8 @@
             @endif
             <input 
                 type="{{ $type }}" 
-                class="form-control  {{$isValid ? 'is-valid' : ''}} {{ $isInvalid ? 'is-invalid' : '' }} {{ $class }}" 
-                id="text_{{ $name }}" 
+                class="form-control {{$isValid ? 'is-valid' : ''}} {{ $isInvalid ? 'is-invalid' : '' }} {{ $class }}" 
+                id="id_{{ $name }}" 
                 name="{{ $name }}"
                 aria-describedby="{{ $name }}_help" 
                 placeholder="{{ $placeholder }}"

@@ -56,6 +56,25 @@
 
       $('.summernote').summernote();
 
+      function getData(){
+        $('.ajaxable').each(function(){
+          var url = $(this).data('ajax-url');
+          $.get(url,function(){
+            alert("success")
+          })
+          .fail(function(){
+            alert('error')
+          })
+        })
+      }
+      
+      var _this = this;
+      $('.watch').change(function(){
+        var id = $(this).data('watch-id');
+        $("#"+id).addClass('ajaxable')
+        getData();
+      });
+
     });
   </script>
   {{-- <script src="{{ url('/js/app.js') }}"></script>  --}}

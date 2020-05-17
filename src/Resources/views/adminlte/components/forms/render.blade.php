@@ -19,4 +19,6 @@
     :is-valid="$isValid"
     :is-invalid="$isInvalid"
     :validate-text="$validateText"
+    :watch="$watch"
+    :ajax-url="$ajaxUrl"
 />

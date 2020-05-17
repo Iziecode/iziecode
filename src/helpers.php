@@ -47,6 +47,7 @@ if (! function_exists('is_icon')) {
         }
     }
 }
+
 // this function for get icon name
 // ex : ez-icon.foo = foo
 if (! function_exists('get_icon')) {
@@ -56,3 +57,4 @@ if (! function_exists('get_icon')) {
         return $array[1];
     }
 }
+

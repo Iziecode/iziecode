@@ -28,6 +28,8 @@ class Form extends Component
     public $validateText;
     public $radioInline;
     public $checkboxInline;
+    public $watch;
+    public $ajaxUrl;
     /**
      * Create a new component instance.
      *
@@ -53,7 +55,9 @@ class Form extends Component
                                 $formGroupPrepend = '',
                                 $isValid = false,
                                 $isInvalid = false,
-                                $validateText = ''
+                                $validateText = '',
+                                $watch = false,
+                                $ajaxUrl = ''
                             )
     {
         $this->label = $label;
@@ -78,6 +82,8 @@ class Form extends Component
         $this->validateText = $validateText;
         $this->radioInline = $type == 'radio-inline' ? true : false;
         $this->checkboxInline = $type == 'checkbox-inline' ? true : false;
+        $this->watch = $watch;
+        $this->ajaxUrl = $ajaxUrl;
     }
 
     /**
@@ -87,6 +93,7 @@ class Form extends Component
      */
     public function render()
     {
+        
         switch ($this->type) {
             case 'text' :
                 return view(load_view('components.forms.input-text'));

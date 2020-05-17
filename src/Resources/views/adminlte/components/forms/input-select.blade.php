@@ -1,5 +1,5 @@
 <div class="form-group {{$layout == 'horizontal' ? 'row' : ''}}">
-    <label for="text_{{ $name }}" 
+    <label for="id_{{ $name }}" 
            class="{{$layout == 'horizontal' ? 'col-sm-2 col-form-label' : ''}}">
             {{ $label }}
     </label>
@@ -20,9 +20,11 @@
             @endif
             <select
                 type="{{ $type }}" 
-                class="form-control  {{$isValid ? 'is-valid' : ''}} {{ $isInvalid ? 'is-invalid' : '' }} {{ $class }}" 
-                id="text_{{ $name }}" 
+                class="form-control {{ $watch != false ? 'watch' : '' }}  {{$isValid ? 'is-valid' : ''}} {{ $isInvalid ? 'is-invalid' : '' }} {{ $class }}" 
+                id="id_{{ $name }}" 
                 name="{{ $name }}"
+                data-watch-id="id_{{ $watch }}"
+                data-ajax-url="{{ $ajaxUrl }}"
                 aria-describedby="{{ $name }}_help" 
                 placeholder="{{ $placeholder }}"
                 {{$attr}}

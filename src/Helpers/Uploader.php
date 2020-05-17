@@ -1,5 +1,5 @@
 <?php
-namespace Iziedev\Iziecode\App\Helpers;
+namespace Iziedev\Iziecode\Helpers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
