@@ -9,7 +9,7 @@ use Iziedev\Iziecode\App\View\Component\RenderForm;
 use Illuminate\Support\Facades\File;
 use Iziedev\Iziecode\Console\IzieCodeInstallCommand;
 
-class IziecodeServicesProvider extends ServiceProvider
+class IziecodeServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
