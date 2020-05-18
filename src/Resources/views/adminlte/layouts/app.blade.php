@@ -8,12 +8,11 @@
   @stack('meta')
     <title> {{page_title($template)}} </title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url('/iziecode/adminlte/css/adminlte.min.css') }}">
-    <link rel="stylesheet" href="{{ url('/iziecode/adminlte/plugins/summernote/summernote.min.css') }}">
-    <link rel="stylesheet" href="{{ url('/iziecode/adminlte/plugins/daterangepicker/daterangepicker.css') }}">
-    <link rel="stylesheet" href="{{ url('/iziecode/adminlte/plugins/select2/css/select2.min.css') }}">   
-    <link rel="stylesheet" href="{{ url('/iziecode/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">   
-    <link rel="stylesheet" href="{{mix('css/admin.css')}}">
+    <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/plugins/summernote/summernote.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/plugins/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/plugins/select2/css/select2.min.css') }}">   
+    <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">   
   @stack('css')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -27,13 +26,13 @@
 
     @include(load_view('layouts.bottom'))
   </div>
-  <script src="{{ url('/iziecode/adminlte/plugins/jquery/jquery.min.js') }}"></script>
-  <script src="{{ url('/iziecode/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url('/iziecode/adminlte/js/adminlte.min.js') }}"></script> 
-  <script src="{{ url('/iziecode/adminlte/plugins/daterangepicker/moment.min.js') }}"></script>
-  <script src="{{ url('/iziecode/adminlte/plugins/summernote/summernote.min.js') }}"></script>
-  <script src="{{ url('/iziecode/adminlte/plugins/daterangepicker/daterangepicker.js') }}"></script>
-  <script src="{{ url('/iziecode/adminlte/plugins/select2/js/select2.min.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/dist/plugins/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/dist/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/dist/js/adminlte.min.js') }}"></script> 
+  <script src="{{ url('/vendor/iziecode/dist/plugins/daterangepicker/moment.min.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/dist/plugins/summernote/summernote.min.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/dist/plugins/daterangepicker/daterangepicker.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/dist/plugins/select2/js/select2.min.js') }}"></script>
   <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -77,7 +76,7 @@
 
     });
   </script>
-  {{-- <script src="{{ url('/js/app.js') }}"></script>  --}}
+  {{-- <script src="{{ url('/vendor/js/app.js') }}"></script>  --}}
   
   @stack('js')
 </body>

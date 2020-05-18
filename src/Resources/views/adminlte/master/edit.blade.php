@@ -26,25 +26,23 @@
         <div class="row">
             <div class="col-md-12">
                 @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        {{ $errors->has('test1') }}
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                    <div class="alert alert-danger">
+                        <ul>
+                            {{ $errors->has('test1') }}
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
                 <div class="card ">
                     <div class="card-header">
                         <h3 class="card-title"><x-ez-icon name="{{$template->icon}}"/> Form Ubah {{$template->title}}</h3>
                     </div>
-                    <form action="{{route("$template->route".".update")}}" method="POST"  enctype="multipart/form-data">
+                    <form action="{{route("$template->route".".update",[$data->id])}}" method="POST"  enctype="multipart/form-data">
                         @csrf
-                        
+                        @method('put')
                         <div class="card-body">
-                            {{-- <x-ez-form name="text" label="Bagus" form-group-prepend="@" form-group-append="ez-icon.add-outline" helper-text="jancuk" placeholder="Ini placeholder" layout="horizontal"/> --}}
-                            {{-- {{$data->name}} --}}
                             @foreach($form as $value)
                                 <x-ez-render-form :props="$value" :data="$data"/>
                             @endforeach

@@ -162,10 +162,12 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = $request->all();
         $this->formValidation($request);
         $primaryId = $this->primaryKey();
-        Menu::where($primaryId,$id)
-            ->update($request->all());
+        // dd($data);
+        Menu::find($id)
+            ->update($data);
         Alert::make('success','Berhasil simpan data');
         return redirect(route($this->template['route'].'.index'));
     }

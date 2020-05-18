@@ -65,7 +65,7 @@ class RenderForm extends Component
         if($data == null){
             $this->value = isset($props['value']) ? $props['value'] : '' ;
         }else{
-            $this->value = $data->name;
+            $this->value = $data->{$this->name};
         }
     }
 

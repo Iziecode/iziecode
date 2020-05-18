@@ -41,9 +41,7 @@ class IziecodeServiceProvider extends ServiceProvider
             RenderForm ::class,
         ]);
 
-        $this->publishes([
-            __DIR__ . '/Public/iziecode' => public_path('iziecode'),
-        ], 'iziecode-public');
+        
 
         $this->publishes([
             __DIR__ . '/Config/iziecode.php' => config_path('iziecode.php'),
