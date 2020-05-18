@@ -26,13 +26,13 @@
 
     @include(load_view('layouts.bottom'))
   </div>
-  <script src="{{ url('/vendor/iziecode/dist/plugins/jquery/jquery.min.js') }}"></script>
-  <script src="{{ url('/vendor/iziecode/dist/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/plugins/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ url('/vendor/iziecode/dist/js/adminlte.min.js') }}"></script> 
-  <script src="{{ url('/vendor/iziecode/dist/plugins/daterangepicker/moment.min.js') }}"></script>
-  <script src="{{ url('/vendor/iziecode/dist/plugins/summernote/summernote.min.js') }}"></script>
-  <script src="{{ url('/vendor/iziecode/dist/plugins/daterangepicker/daterangepicker.js') }}"></script>
-  <script src="{{ url('/vendor/iziecode/dist/plugins/select2/js/select2.min.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/plugins/daterangepicker/moment.min.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/plugins/summernote/summernote.min.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/plugins/daterangepicker/daterangepicker.js') }}"></script>
+  <script src="{{ url('/vendor/iziecode/plugins/select2/js/select2.min.js') }}"></script>
   <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
