@@ -16,6 +16,7 @@ class Menu extends Model
         'name',
         'route_name',
         'icon',
+        'parent_id',
         'active_menu'
     ];
 
