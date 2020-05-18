@@ -39,7 +39,7 @@
                     <div class="card-header">
                         <h3 class="card-title"><x-ez-icon name="{{$template->icon}}"/> Form Ubah {{$template->title}}</h3>
                     </div>
-                    <form action="{{route("$template->route".".store")}}" method="POST"  enctype="multipart/form-data">
+                    <form action="{{route("$template->route".".update")}}" method="POST"  enctype="multipart/form-data">
                         @csrf
                         
                         <div class="card-body">
