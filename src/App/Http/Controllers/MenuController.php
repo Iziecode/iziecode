@@ -19,7 +19,7 @@ class MenuController extends Controller
         'title' => 'Menu',
         'route' => 'admin.menu',
         'menu' => 'menu',
-        'icon' => 'apps-outline',
+        'icon' => 'list-outline',
         'theme' => 'skin-blue',
         'config' => [
             'index.delete.is_show' => false

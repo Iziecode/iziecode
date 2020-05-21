@@ -20,7 +20,7 @@
                 @endforeach
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="document.getElementById('frmLogout').submit()">
-                        <x-ez-icon name="power-outline"/>
+                        <x-ez-icon name="power-outline" class="nav-icon"/>
                         <p>Logout</p>
                     </a>
                     

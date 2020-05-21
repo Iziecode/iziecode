@@ -1,10 +1,10 @@
 <li class="nav-item {{count($menu->subMenu) > 0 ? 'has-treeview' : ''}}">
     <a href="{{Route::has($menu->route_name) ? route("$menu->route_name") : '#'}}" class="nav-link " >
-        <x-ez-icon name="{{ $menu->icon }}"/>
+        <x-ez-icon name="{{ $menu->icon }}" class="nav-icon" />
         <p>
             {{$menu->name}}
             @if(count($menu->subMenu) > 0)
-                <i class="fas fa-angle-left right"></i>
+            <x-ez-icon name="chevron-down-outline" class="right" />
             @endif
         </p>
     </a>
