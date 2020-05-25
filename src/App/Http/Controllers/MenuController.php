@@ -69,6 +69,7 @@ class MenuController extends Controller
                 'label' => 'Parent Menu',
                 'name' => 'parent_id',
                 'type' => 'select',
+                'class' => 'select2',
                 'required' => false,
                 'options' => $menus,
                 'view_index' => true,

@@ -8,12 +8,13 @@
   @stack('meta')
     <title> {{page_title($template)}} </title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/css/adminlte.min.css') }}">
+    
     <link rel="stylesheet" href="{{ url('/vendor/iziecode/plugins/summernote/summernote.min.css') }}">
     <link rel="stylesheet" href="{{ url('/vendor/iziecode/plugins/daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ url('/vendor/iziecode/plugins/select2/css/select2.min.css') }}">   
-    <link rel="stylesheet" href="{{ url('/vendor/iziecode/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}"> 
+    <link rel="stylesheet" href="{{ url('/vendor/iziecode/plugins/select2-bootstrap4-theme/select2-bootstrap4.css') }}"> 
     <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/css/iziecode.css') }}">
+    <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/css/adminlte.min.css') }}">
     {{-- <link rel="stylesheet" href="{{ mix('/css/iziecode.css') }}">  for testing --}}
   @stack('css')
 </head>
