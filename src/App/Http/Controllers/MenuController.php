@@ -53,6 +53,7 @@ class MenuController extends Controller
             [
                 'label' => 'Route',
                 'name' => 'route_name',
+                'class' => 'datepicker',
                 'view_index' => true,
             ],
             [

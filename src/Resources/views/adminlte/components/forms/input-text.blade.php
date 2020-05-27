@@ -26,6 +26,7 @@
                 aria-describedby="{{ $name }}_help" 
                 placeholder="{{ $placeholder }}"
                 value="{{ old('$name',$value) }}"
+                data-value="{{ old('$name',$value) }}"
                 {{$attr}}
                 {{ $readonly != false ? 'readonly' : ''  }}
                 {{ $required != false ? 'required' : ''  }}

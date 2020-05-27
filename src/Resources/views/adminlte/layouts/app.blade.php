@@ -41,12 +41,16 @@
     $(document).ready(function() {
       $('.select2').select2();
 
-      $('.datepicker').daterangepicker({
-        singleDatePicker : true,
-        showDropdowns: true,
-        locale : {
-          format : 'YYYY-MM-DD'
+      $('.datepicker').each(function(){
+        config = {
+          singleDatePicker : true,
+          showDropdowns: true,
+          startDate : $(this).data('value') != '' ? $(this).data('value') : moment(),
+          locale : {
+            format : 'YYYY-MM-DD'
+          }
         }
+        $(this).daterangepicker(config);
       })
 
       $('.rangedatepicker').daterangepicker({
