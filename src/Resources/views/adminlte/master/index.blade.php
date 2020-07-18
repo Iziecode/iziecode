@@ -9,14 +9,13 @@
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0 text-dark">{{$template->title}}</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li><a href="{!! route(config('iziecode.dashboard-route')) !!}"><i class="fa fa-dashboard"></i> Home</a></li> / 
-                    <li class="active">{{$template->title}}</li>
-                </ol>
+            <div class="col-sm-12 d-flex align-items-center">
+                <h1 class="m-0 text-dark d-inline mr-2">{{$template->title}}</h1>
+                <div class="ez-breadcrumb">
+                    <a href="{!! route(config('iziecode.dashboard-route')) !!}"> <x-ez-icon name="home-outline" class="breadcrumb-icon mr-2"/></a>
+                    <a href="#"> <x-ez-icon name="chevron-forward-outline" class="breadcrumb-divider mr-2"/></a>
+                    <a href="#" class="active">{{$template->title}}</a>
+                </div>
             </div>
         </div>
     </div>
@@ -30,7 +29,7 @@
                     <div class="card-header">
                         <h3 class="box-title"><x-ez-icon name="{{$template->icon}}" class="title-icon"/> List {{$template->title}}</h3>
                         <a href="{{route("$template->route".'.create')}}"
-                            class="btn ez-btn btn-primary float-right {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.create.is_show') ?  \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.create.is_show') : 'hidden'}}">
+                            class="btn ez-btn primary-bg btn-primary float-right {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.create.is_show') ?  \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.create.is_show') : 'hidden'}}">
                             <x-ez-icon  name="add-outline"  class="icon-center" /> Tambah {{$template->title}}
                         </a>
                     </div>
@@ -74,16 +73,16 @@
                                     <td>
                                         <a href="{{route("$template->route".'.edit',[$row->{$primaryId}])}}"
                                             class="btn ez-btn btn-success btn-sm {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.edit.is_show') ? '' : 'hidden'}}">
-                                            <x-ez-icon name="create-outline" class="icon-center"/> Ubah
+                                            <x-ez-icon name="create-outline" class="icon-center"/>
                                         </a>
                                         <a href="{{route("$template->route".'.show',[$row->{$primaryId}])}}"
                                             class="btn ez-btn btn-info btn-sm {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.show.is_show') ? '' : 'hidden'}}">
-                                            <x-ez-icon name="eye-outline" class="icon-center"/> Lihat
+                                            <x-ez-icon name="eye-outline" class="icon-center"/>
                                         </a>
                                         <a href="#"
                                             class="btn ez-btn btn-danger btn-sm {{ \Iziedev\Iziecode\Helpers\AppHelper::config($config,'index.delete.is_show') ? '' : 'hidden'}}"
                                             onclick="confirm('Lanjutkan ?') ? $('#frmDelete{{$key}}').submit() : '' ">
-                                            <x-ez-icon name="trash-outline" class="icon-center"/> Hapus
+                                            <x-ez-icon name="trash-outline" class="icon-center"/>
                                         </a>
                                         <form action="{{route("$template->route".'.destroy',[$row->{$primaryId}])}}" method="POST"
                                             id="frmDelete{{$key}}">
