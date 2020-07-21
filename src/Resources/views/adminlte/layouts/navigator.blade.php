@@ -4,7 +4,7 @@
         <p>
             {{$menu->name}}
             @if(count($menu->subMenu) > 0)
-            <x-ez-icon name="chevron-down-outline" class="right" />
+                <x-ez-icon name="chevron-down-outline" class="right" />
             @endif
         </p>
     </a>

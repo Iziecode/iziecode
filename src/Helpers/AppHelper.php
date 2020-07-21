@@ -72,7 +72,7 @@ class AppHelper{
 
     public static function renderMenu()
     {
-        return $menu = Menu::whereNull('parent_id')->get();
-        //    return dd($menu);
+        $menu = Menu::whereNull('parent_id')->get();
+        
     }
 }

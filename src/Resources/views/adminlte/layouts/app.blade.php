@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="{{ url('/vendor/iziecode/plugins/daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ url('/vendor/iziecode/plugins/select2/css/select2.min.css') }}">   
     <link rel="stylesheet" href="{{ url('/vendor/iziecode/plugins/select2-bootstrap4-theme/select2-bootstrap4.css') }}"> 
-    {{-- <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/css/iziecode.css') }}"> --}}
+    <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/css/iziecode.css') }}">
     <link rel="stylesheet" href="{{ url('/vendor/iziecode/dist/css/adminlte.min.css') }}">
-    <link rel="stylesheet" href="{{ mix('/css/iziecode.css') }}">
+    {{-- <link rel="stylesheet" href="{{ mix('/css/iziecode.css') }}"> --}}
   @stack('css')
 </head>
 <body class="hold-transition sidebar-mini">
