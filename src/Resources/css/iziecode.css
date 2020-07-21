@@ -1,0 +1,119 @@
+.primary-color {
+  color: #6e6be8; }
+
+.success-color {
+  color: #60c378; }
+
+.danger-color {
+  color: #da5e5a; }
+
+.warning-color {
+  color: #f3a356; }
+
+.danger-color {
+  color: #da5e5a; }
+
+.gray-color {
+  color: #626262; }
+
+.primary-bg {
+  background-color: #6e6be8; }
+
+.success-bg {
+  background-color: #60c378; }
+
+.danger-bg {
+  background-color: #da5e5a; }
+
+.warning-bg {
+  background-color: #f3a356; }
+
+.danger-bg {
+  background-color: #da5e5a; }
+
+.gray-bg {
+  background-color: #626262; }
+
+* {
+  font-family: 'Montserrat', sans-serif; }
+
+.nav-item .nav-link {
+  display: flex !important;
+  align-items: center !important; }
+.nav-item .nav-icon {
+  margin-right: .7rem !important; }
+
+.box-title {
+  display: flex;
+  align-items: center; }
+  .box-title .title-icon {
+    margin-right: .7rem; }
+
+.icon-center {
+  vertical-align: middle;
+  font-size: 20px;
+  margin-top: -3px; }
+
+.btn-sm .icon-center {
+  font-size: 16px;
+  margin-top: -4px; }
+
+.avatar-image {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  overflow: hidden; }
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  background: #6A75CA;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s; }
+  .avatar.avatar-sm {
+    width: 25px;
+    height: 25px;
+    font-size: 15px; }
+
+.navbar {
+  border: none !important; }
+
+.sidebar-collapse .avatar {
+  width: 30px;
+  height: 30px;
+  font-size: 15px; }
+
+.card, .main-sidebar, .main-header {
+  box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1) !important; }
+
+.ez-breadcrumb {
+  display: flex;
+  border-left: 1px solid gray;
+  border-radius: 0px;
+  padding-left: 10px !important;
+  margin-bottom: 0px;
+  align-items: center; }
+  .ez-breadcrumb .breadcrumb-icon {
+    font-size: 20px;
+    color: #6e6be8; }
+  .ez-breadcrumb .breadcrumb-divider {
+    font-size: 15px;
+    color: #626262;
+    cursor: default; }
+  .ez-breadcrumb a {
+    display: flex;
+    align-items: center; }
+    .ez-breadcrumb a.active {
+      color: #626262;
+      cursor: default; }
+
+.card {
+  border-radius: .5rem;
+  font-size: 14px; }
+
+/*# sourceMappingURL=iziecode.css.map */
